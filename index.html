@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,22 +6,21 @@
     <title>Vispero — Board Briefing: MuleSoft & Informatica Value</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN for visual board-ready graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --primary: #0f172a;
+            --primary-dark: #0f172a;
             --primary-accent: #2563eb;
-            --accent-light: #eff6ff;
+            --accent-green: #059669;
+            --accent-red: #dc2626;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
             --text-main: #334155;
             --text-dark: #0f172a;
             --text-muted: #64748b;
-            --bg-body: #f8fafc;
-            --bg-card: #ffffff;
             --border-color: #e2e8f0;
-            --danger-bg: #fef2f2;
-            --danger-text: #991b1b;
-            --success-bg: #f0fdf4;
-            --success-text: #166534;
         }
 
         * {
@@ -41,31 +40,31 @@
 
         /* Sidebar Navigation */
         .sidebar {
-            width: 280px;
-            background: var(--primary);
+            width: 290px;
+            background: var(--primary-dark);
             color: #fff;
             position: fixed;
             height: 100vh;
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .sidebar h2 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: #94a3b8;
-            margin-bottom: 0.5rem;
+        .sidebar-brand {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-bottom: 0.25rem;
         }
 
-        .sidebar h1 {
-            font-size: 1.4rem;
-            color: #fff;
+        .sidebar-subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #94a3b8;
             margin-bottom: 2rem;
-            line-height: 1.3;
         }
 
         .nav-links {
@@ -73,16 +72,16 @@
         }
 
         .nav-links li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .nav-links a {
             color: #cbd5e1;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             display: block;
-            padding: 0.5rem 0.75rem;
+            padding: 0.6rem 0.8rem;
             border-radius: 6px;
             transition: all 0.2s ease;
         }
@@ -96,103 +95,181 @@
             font-size: 0.8rem;
             color: #94a3b8;
             border-top: 1px solid #334155;
-            padding-top: 1rem;
+            padding-top: 1.25rem;
         }
 
-        /* Main Content Area */
+        .meta-info p {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Main Content */
         .main-content {
-            margin-left: 280px;
+            margin-left: 290px;
             flex: 1;
             padding: 3rem 4rem;
-            max-width: 1100px;
+            max-width: 1200px;
         }
 
         /* Banner Header */
         .header-banner {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-left: 5px solid var(--primary-accent);
-            padding: 2rem;
-            border-radius: 8px;
+            border-left: 6px solid var(--primary-accent);
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
             margin-bottom: 3rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        .header-banner .badge {
+        .badge {
             display: inline-block;
-            background: var(--accent-light);
+            background: #eff6ff;
             color: var(--primary-accent);
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            padding: 0.25rem 0.75rem;
+            letter-spacing: 0.05em;
+            padding: 0.3rem 0.8rem;
             border-radius: 9999px;
             margin-bottom: 0.75rem;
         }
 
-        .header-banner h2 {
-            font-size: 2rem;
+        .header-banner h1 {
+            font-size: 2.1rem;
             color: var(--text-dark);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            font-weight: 800;
         }
 
-        /* Section Styling */
+        .header-banner p {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            max-width: 900px;
+        }
+
+        /* ROI Callout Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .metric-card .title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-card .value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0.4rem 0;
+        }
+
+        .metric-card .value.red { color: var(--accent-red); }
+        .metric-card .value.green { color: var(--accent-green); }
+        .metric-card .value.blue { color: var(--primary-accent); }
+
+        .metric-card .subtext {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Layouts */
         section {
             margin-bottom: 3.5rem;
             scroll-margin-top: 2rem;
         }
 
         section h2 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--text-dark);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--border-color);
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Question Cards Grid */
-        .grid-cards {
+        .charts-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
-        .card {
+        .chart-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+            border-radius: 10px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
         }
 
-        .card h3 {
+        .chart-card h3 {
             font-size: 1.1rem;
-            color: var(--primary-accent);
-            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+            font-weight: 700;
         }
 
-        .card ul {
-            padding-left: 1.25rem;
-            font-size: 0.95rem;
+        .chart-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
         }
 
-        .card li {
-            margin-bottom: 0.5rem;
+        .chart-container {
+            position: relative;
+            height: 260px;
+            width: 100%;
         }
 
-        /* Custom Tables */
-        .table-container {
-            overflow-x: auto;
+        /* Statement Box Callouts */
+        .statement-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-accent);
             border-radius: 8px;
-            margin-top: 1rem;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+
+        .statement-card.alert {
+            border-left-color: var(--accent-red);
+            background: #fef2f2;
+        }
+
+        .statement-card h4 {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .statement-card p {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        /* Tables */
+        .table-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
             margin-bottom: 2rem;
         }
 
@@ -200,19 +277,19 @@
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
         }
 
         th {
             background: #f1f5f9;
             color: var(--text-dark);
-            font-weight: 600;
-            padding: 0.75rem 1rem;
+            font-weight: 700;
+            padding: 0.85rem 1.25rem;
             border-bottom: 1px solid var(--border-color);
         }
 
         td {
-            padding: 0.85rem 1rem;
+            padding: 1rem 1.25rem;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -220,59 +297,12 @@
             border-bottom: none;
         }
 
-        .tag-danger {
-            background: var(--danger-bg);
-            color: var(--danger-text);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .tag-success {
-            background: var(--success-bg);
-            color: var(--success-text);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        /* Statement Blockquotes */
-        .statement-box {
-            background: var(--bg-card);
-            border-left: 4px solid var(--primary-accent);
-            padding: 1.25rem 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-        }
-
-        .statement-box h4 {
-            color: var(--text-dark);
-            margin-bottom: 0.4rem;
-            font-size: 1rem;
-        }
-
-        .statement-box p {
-            font-size: 0.95rem;
-            color: var(--text-main);
-        }
-
         /* Responsive */
-        @media (max-width: 900px) {
-            body {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            .main-content {
-                margin-left: 0;
-                padding: 1.5rem;
-            }
+        @media (max-width: 992px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; padding: 2rem 1.5rem; }
+            .charts-row { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -281,229 +311,281 @@
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
         <div>
-            <h2>Vispero Briefing</h2>
-            <h1>MuleSoft & Informatica Value</h1>
+            <div class="sidebar-brand">Vispero</div>
+            <div class="sidebar-subtitle">Board Business Value Brief</div>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="#executive-brief">Executive Brief</a></li>
-                    <li><a href="#framing-problem">1. Framing the Problem</a></li>
-                    <li><a href="#business-case">2. Business Case</a></li>
-                    <li><a href="#phased-investment">3. Phased Roadmap</a></li>
-                    <li><a href="#why-both">4. MuleSoft vs Informatica</a></li>
-                    <li><a href="#board-faq">5. Board FAQs</a></li>
+                    <li><a href="#executive-summary">Executive Summary</a></li>
+                    <li><a href="#revenue-analytics">Revenue Protection & Leakage</a></li>
+                    <li><a href="#efficiency-analytics">Operational Efficiency & ROI</a></li>
+                    <li><a href="#risk-architecture">Risk & Architecture Governance</a></li>
+                    <li><a href="#phased-roadmap">Phased Value Roadmap</a></li>
                 </ul>
             </nav>
         </div>
         <div class="meta-info">
             <p><strong>Prepared for:</strong> Robert Dion, VP IT</p>
             <p><strong>Salesforce AE:</strong> Sarvin Tavakol</p>
+            <p><strong>Target Enterprise:</strong> vispero.com</p>
         </div>
     </aside>
 
     <!-- Main Content -->
     <main class="main-content">
 
-        <!-- Executive Brief Banner -->
-        <section id="executive-brief" class="header-banner">
-            <span class="badge">Executive Brief</span>
-            <h2>Why This Matters Now</h2>
-            <p>Vispero is at a critical inflection point. With a new CEO, ELT-approved 2H 2026 initiatives, and a active private-equity holding period, every dollar spent must directly tie to clear business outcomes—not technology for its own sake.</p>
+        <!-- Header Banner -->
+        <section id="executive-summary" class="header-banner">
+            <span class="badge">Board Presentation</span>
+            <h1>MuleSoft & Informatica: Business Value & Strategic ROI</h1>
+            <p>Vispero is at a key strategic inflection point under a private-equity holding period. Every dollar spent must directly drive measurable business outcomes: recurring revenue protection, operational efficiency, cost reduction, and technical risk mitigation.</p>
         </section>
 
-        <!-- Part 1: Framing the Problem -->
-        <section id="framing-problem">
-            <h2>Part 1: Framing the Problem</h2>
-            <p class="subtitle">Opening questions designed to surface urgency and align stakeholders before presenting solutions.</p>
+        <!-- Top Key ROI Metrics Grid -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="title">Current Revenue Leakage</div>
+                <div class="value red">35–40%</div>
+                <div class="subtext">ARR at risk due to un-synced renewal visibility</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Target Revenue Leakage</div>
+                <div class="value green">&lt; 5%</div>
+                <div class="subtext">Post-automation real-time contract sync</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Reporting Time Savings</div>
+                <div class="value blue">Weeks &#8594; Real-Time</div>
+                <div class="subtext">Immediate pipeline visibility for sales leadership</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Technical Debt Elimination</div>
+                <div class="value green">47 &#8594; 0</div>
+                <div class="subtext">Undocumented legacy integrations replaced</div>
+            </div>
+        </div>
 
-            <div class="grid-cards">
-                <div class="card">
-                    <h3>Revenue Visibility</h3>
-                    <ul>
-                        <li>How confident are we in our renewal pipeline today—and what does a missed renewal cost us?</li>
-                        <li>How long does it take to produce an accurate renewal report? Is that acceptable at our growth trajectory?</li>
-                        <li>With renewal data split between Great Plains and Salesforce, how many manual steps slow down reps?</li>
-                    </ul>
+        <!-- Section 1: Revenue Protection & Leakage -->
+        <section id="revenue-analytics">
+            <h2>1. Revenue Protection & Renewal Analytics</h2>
+
+            <div class="statement-card alert">
+                <h4>35–40% Revenue Leakage Identified</h4>
+                <p>An estimated 35–40% revenue leakage was identified due to limited renewal data visibility across Great Plains, Salesforce, and license servers. Centralizing renewals data and automating the synchronization is a strategic revenue protection play with immediate ARR impact.</p>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-card">
+                    <h3>ARR Renewal Leakage Reduction (%)</h3>
+                    <p>Comparison of pre-integration leakage versus automated target state</p>
+                    <div class="chart-container">
+                        <canvas id="leakageChart"></canvas>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Operational Risk</h3>
-                    <ul>
-                        <li>What happens to quote-to-order when a customer record is missing in Great Plains?</li>
-                        <li>With ~47 undocumented point-to-point integrations built by former contractors, what is our recovery time if one breaks?</li>
-                        <li>Can we make ERP strategy decisions without knowing what needs rebuilding if Great Plains changes?</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Data Quality & Trust</h3>
-                    <ul>
-                        <li>Do we have a single, agreed source of truth for contract end dates between Salesforce, Great Plains, and the license server?</li>
-                        <li>Are we confident data is clean enough before migrating to the new Salesforce org?</li>
-                        <li>How are we managing churn risk without linked customer records across key systems?</li>
-                    </ul>
+                <div class="chart-card">
+                    <h3>Renewal Pipeline Reporting Cycle Time</h3>
+                    <p>Time required for leadership to produce accurate renewal reporting</p>
+                    <div class="chart-container">
+                        <canvas id="reportTimeChart"></canvas>
+                    </div>
                 </div>
             </div>
 
-            <h3>Key Performance Indicators (KPI Anchors)</h3>
+            <div class="statement-card">
+                <h4>Board Statement on Revenue Protection</h4>
+                <p>Every software renewal that slips due to manual data gaps between Great Plains and Salesforce directly damages ARR. At 35–40% identified risk, automating this pipeline delivers the single highest ROI initiative available to Vispero today.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Operational Efficiency & ROI -->
+        <section id="efficiency-analytics">
+            <h2>2. Operational Efficiency & Time Savings</h2>
+
+            <div class="charts-row">
+                <div class="chart-card">
+                    <h3>Quote-to-Order Processing Time (Hours)</h3>
+                    <p>Manual re-work reduction when ERP accounts are missing or unlinked</p>
+                    <div class="chart-container">
+                        <canvas id="q2oChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>Customer Master Data Quality & Deduplication</h3>
+                    <p>Canonical record accuracy before & after Informatica cleansing</p>
+                    <div class="chart-container">
+                        <canvas id="dataQualityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="statement-card">
+                <h4>Board Statement on Productivity & Headcount</h4>
+                <p>Producing accurate revenue pipeline reporting today requires weeks of spreadsheet reconciliation. Replacing manual data operations with governed automation relieves administrative constraints on the Salesforce team and enables sales reps to focus on selling.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Risk & Architecture Governance -->
+        <section id="risk-architecture">
+            <h2>3. Architectural Risk & ERP Flexibility</h2>
+
+            <div class="statement-card">
+                <h4>Eliminating Technical Debt (~47 Point-to-Point Connections)</h4>
+                <p>Vispero currently operates approximately 47 undocumented point-to-point integrations created by legacy contractors. Replacing these connections with a governed MuleSoft integration layer de-risks operations, establishes recovery SLAs, and enables scalable growth.</p>
+            </div>
+
+            <div class="statement-card">
+                <h4>Future-Proofing ERP Agility ("Swappable Fitting")</h4>
+                <p>Standardizing CRM-to-ERP integration rather than hard-coding legacy connections ensures Vispero remains ERP-agnostic. If the board evaluates replacing Great Plains in the future, the integration architecture remains intact—build once, adapt cheaply.</p>
+            </div>
+
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
-                            <th>Metric</th>
-                            <th>Current State</th>
-                            <th>Target State</th>
+                            <th>Platform</th>
+                            <th>Core Strategic Role</th>
+                            <th>Vispero Enterprise Impact</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Estimated Revenue Leakage</strong></td>
-                            <td><span class="tag-danger">35–40% ARR at risk</span></td>
-                            <td><span class="tag-success">&lt;5% automated sync</span></td>
+                            <td><strong>MuleSoft</strong></td>
+                            <td>Real-time, event-driven transactional integration</td>
+                            <td>Synchronizes Salesforce ↔ Great Plains ↔ License Server in real-time. Eliminates manual quote-to-order bottlenecks.</td>
                         </tr>
                         <tr>
-                            <td><strong>SMA End Dates Populated</strong></td>
-                            <td>Majority missing</td>
-                            <td><span class="tag-success">100% real-time maintenance</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Time to Produce Renewal Report</strong></td>
-                            <td>Weeks (manual)</td>
-                            <td><span class="tag-success">Real-time / Same-day</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Undocumented Integrations</strong></td>
-                            <td><span class="tag-danger">~47 connections</span></td>
-                            <td><span class="tag-success">0 (Governed layer)</span></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Golden Record Linking (SF/GP)</strong></td>
-                            <td>Does not exist</td>
-                            <td><span class="tag-success">Single canonical record</span></td>
+                            <td><strong>Informatica</strong></td>
+                            <td>Data governance, cleansing, & master data management</td>
+                            <td>Cleans, deduplicates, and creates a "Golden Record" canonical model for all customer entitlements and contracts.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- Part 2: The Business Case -->
-        <section id="business-case">
-            <h2>Part 2: The Business Case</h2>
-            <p class="subtitle">Declarative, board-ready statements that frame the investment in business outcome terms.</p>
+        <!-- Section 4: Phased Value Roadmap -->
+        <section id="phased-roadmap">
+            <h2>4. Phased Value Delivery Roadmap</h2>
 
-            <div class="statement-box">
-                <h4>On Revenue Protection</h4>
-                <p>Centralizing renewals data and automating sync between Salesforce and Great Plains is a revenue protection play. At 35–40% identified leakage, this is the single highest-ROI initiative available to Vispero today.</p>
-            </div>
-
-            <div class="statement-box">
-                <h4>On Operational Efficiency</h4>
-                <p>Producing a pipeline report today takes weeks. A governed integration layer brings real-time visibility—freeing sales teams to sell, rather than reconcile spreadsheets.</p>
-            </div>
-
-            <div class="statement-box">
-                <h4>On Risk Reduction</h4>
-                <p>47 undocumented point-to-point connections mean system changes carry hidden risk. Replacing these with a modern, governed platform de-risks the business as we scale.</p>
-            </div>
-
-            <div class="statement-box">
-                <h4>On ERP Flexibility</h4>
-                <p>A "swappable fitting" integration architecture standardizes CRM-to-ERP connections, protecting us from vendor lock-in if the board decides to replace Great Plains.</p>
-            </div>
-
-            <div class="statement-box">
-                <h4>On Investment & Timing</h4>
-                <p>MuleSoft + Informatica packaging changes traditional $100K+ spend dynamics. Cleaning data and establishing governance now prevents inheriting technical debt at scale during org consolidation.</p>
-            </div>
-        </section>
-
-        <!-- Part 3: Proposed Phased Investment -->
-        <section id="phased-investment">
-            <h2>Part 3: Proposed Phased Investment</h2>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
                             <th>Phase</th>
-                            <th>Timing</th>
-                            <th>What We're Solving</th>
-                            <th>Expected Outcome</th>
+                            <th>Timeline</th>
+                            <th>Focus & Execution</th>
+                            <th>Quantifiable Value Delivered</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>Crawl</strong></td>
                             <td>Jul–Sep 2026</td>
-                            <td>Data quality: cleanse, dedupe, establish source-of-truth rules</td>
-                            <td>Accurate renewal pipeline in weeks, not months</td>
+                            <td>Informatica data cleanse, deduplication, & source-of-truth governance</td>
+                            <td>Accurate renewal pipeline reports in real-time; eliminates 35–40% leakage risk.</td>
                         </tr>
                         <tr>
                             <td><strong>Walk</strong></td>
                             <td>Oct–Dec 2026</td>
-                            <td>System integration: connect Salesforce ↔ Great Plains ↔ License Server</td>
-                            <td>Real-time Q2O sync, zero manual double-entry</td>
+                            <td>MuleSoft connection: Salesforce ↔ Great Plains ↔ License Server</td>
+                            <td>Same-day automated Quote-to-Order; zero manual double-entry.</td>
                         </tr>
                         <tr>
                             <td><strong>Run</strong></td>
                             <td>Jan–Feb 2027</td>
-                            <td>AI scaling: predictive renewal alerts, risk models, agent workflows</td>
-                            <td>Proactive revenue retention at scale</td>
+                            <td>Predictive renewal analytics, attrition modeling, & AI agent workflows</td>
+                            <td>Proactive revenue retention and automated renewal forecasting at scale.</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </section>
-
-        <!-- Part 4: MuleSoft vs Informatica -->
-        <section id="why-both">
-            <h2>Part 4: MuleSoft vs. Informatica — The "Why Both" Story</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tool</th>
-                            <th>Role</th>
-                            <th>Vispero Use Case</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>MuleSoft</strong></td>
-                            <td>Real-time, event-driven app-to-app integration</td>
-                            <td>Salesforce ↔ Great Plains transactional sync (Q2O, account creation, pricing)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Informatica</strong></td>
-                            <td>Batch data movement, governance, data quality at scale</td>
-                            <td>Deduplication, canonical record creation, renewals data cleanse</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="statement-box" style="background: var(--accent-light); border-color: var(--primary-accent);">
-                <h4>The Board Analogy</h4>
-                <p><strong>MuleSoft</strong> is the plumbing that moves data between systems in real time. <strong>Informatica</strong> is the water treatment plant that ensures the water moving through those pipes is clean and trustworthy. You need both.</p>
-            </div>
-        </section>
-
-        <!-- Part 5: Board Objections -->
-        <section id="board-faq">
-            <h2>Part 5: Anticipated Board Objections & Responses</h2>
-            
-            <div class="statement-box">
-                <h4>"This sounds like a big IT project."</h4>
-                <p>It's structured as a 3-phase program with measurable business outcomes at each stage. Phase 1 costs less than a single missed enterprise renewal.</p>
-            </div>
-
-            <div class="statement-box">
-                <h4>"Can't we just fix this with Salesforce alone?"</h4>
-                <p>Salesforce manages customer relationships; it is not designed to be a enterprise data quality engine or ERP integration hub. MuleSoft and Informatica fill that precise infrastructure gap.</p>
-            </div>
-
-            <div class="statement-box">
-                <h4>"What about our ERP decision—should we wait?"</h4>
-                <p>No. Waiting locks in manual risk. Our proposed architecture is explicitly ERP-agnostic and will survive a Great Plains replacement seamlessly.</p>
             </div>
         </section>
 
     </main>
 
+    <!-- JavaScript to render interactive Chart.js visualizations -->
+    <script>
+        // Chart 1: Revenue Leakage
+        const ctxLeakage = document.getElementById('leakageChart').getContext('2d');
+        new Chart(ctxLeakage, {
+            type: 'bar',
+            data: {
+                labels: ['Current State (Un-Synced Data)', 'Target State (MuleSoft + Informatica)'],
+                datasets: [{
+                    label: 'ARR Revenue Leakage Risk (%)',
+                    data: [37.5, 3.0],
+                    backgroundColor: ['#dc2626', '#059669'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, max: 50, ticks: { callback: v => v + '%' } } }
+            }
+        });
+
+        // Chart 2: Report Time
+        const ctxReport = document.getElementById('reportTimeChart').getContext('2d');
+        new Chart(ctxReport, {
+            type: 'bar',
+            data: {
+                labels: ['Current (Manual Spreadsheet)', 'Target (Governed Pipeline)'],
+                datasets: [{
+                    label: 'Time to Produce Renewal Report (Days)',
+                    data: [14, 0.1],
+                    backgroundColor: ['#64748b', '#2563eb'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, title: { display: true, text: 'Days' } } }
+            }
+        });
+
+        // Chart 3: Quote-to-Order Processing
+        const ctxQ2O = document.getElementById('q2oChart').getContext('2d');
+        new Chart(ctxQ2O, {
+            type: 'bar',
+            data: {
+                labels: ['Manual Account Creation', 'Automated Integration Sync'],
+                datasets: [{
+                    label: 'Quote-to-Order Cycle (Hours)',
+                    data: [48, 0.5],
+                    backgroundColor: ['#dc2626', '#059669'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, title: { display: true, text: 'Hours' } } }
+            }
+        });
+
+        // Chart 4: Customer Data Quality Accuracy
+        const ctxQuality = document.getElementById('dataQualityChart').getContext('2d');
+        new Chart(ctxQuality, {
+            type: 'doughnut',
+            data: {
+                labels: ['Validated Golden Records', 'Duplicate / Missing Data'],
+                datasets: [{
+                    data: [99, 1],
+                    backgroundColor: ['#2563eb', '#e2e8f0']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
