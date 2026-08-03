@@ -23,11 +23,7 @@
             --border-color: #e2e8f0;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -51,253 +47,89 @@
             justify-content: space-between;
         }
 
-        .sidebar-brand {
-            font-size: 1.4rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: #fff;
-            margin-bottom: 0.25rem;
-        }
+        .sidebar-brand { font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.25rem; }
+        .sidebar-subtitle { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; margin-bottom: 2rem; }
 
-        .sidebar-subtitle {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #94a3b8;
-            margin-bottom: 2rem;
-        }
-
-        .nav-links {
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-bottom: 0.5rem;
-        }
-
+        .nav-links { list-style: none; }
+        .nav-links li { margin-bottom: 0.5rem; }
         .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: block;
-            padding: 0.6rem 0.8rem;
-            border-radius: 6px;
-            transition: all 0.2s ease;
+            color: #cbd5e1; text-decoration: none; font-size: 0.9rem; font-weight: 500;
+            display: block; padding: 0.6rem 0.8rem; border-radius: 6px; transition: all 0.2s ease;
         }
+        .nav-links a:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-        }
-
-        .meta-info {
-            font-size: 0.8rem;
-            color: #94a3b8;
-            border-top: 1px solid #334155;
-            padding-top: 1.25rem;
-        }
-
-        .meta-info p {
-            margin-bottom: 0.3rem;
-        }
+        .meta-info { font-size: 0.8rem; color: #94a3b8; border-top: 1px solid #334155; padding-top: 1.25rem; }
+        .meta-info p { margin-bottom: 0.3rem; }
 
         /* Main Content */
-        .main-content {
-            margin-left: 290px;
-            flex: 1;
-            padding: 3rem 4rem;
-            max-width: 1200px;
-        }
+        .main-content { margin-left: 290px; flex: 1; padding: 3rem 4rem; max-width: 1200px; }
 
         /* Banner Header */
         .header-banner {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-left: 6px solid var(--primary-accent);
-            padding: 2rem 2.5rem;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-left: 6px solid var(--primary-accent); padding: 2rem 2.5rem;
+            border-radius: 10px; margin-bottom: 2.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .badge {
-            display: inline-block;
-            background: #eff6ff;
-            color: var(--primary-accent);
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.3rem 0.8rem;
-            border-radius: 9999px;
-            margin-bottom: 0.75rem;
+            display: inline-block; background: #eff6ff; color: var(--primary-accent);
+            font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            padding: 0.3rem 0.8rem; border-radius: 9999px; margin-bottom: 0.75rem;
         }
 
-        .header-banner h1 {
-            font-size: 2.1rem;
-            color: var(--text-dark);
-            margin-bottom: 0.75rem;
-            font-weight: 800;
-        }
+        .header-banner h1 { font-size: 2.1rem; color: var(--text-dark); margin-bottom: 0.75rem; font-weight: 800; }
+        .header-banner p { font-size: 1.05rem; color: var(--text-main); max-width: 900px; }
 
-        .header-banner p {
-            font-size: 1.05rem;
-            color: var(--text-main);
-            max-width: 900px;
-        }
-
-        /* ROI Callout Metrics Grid */
+        /* Metrics Grid */
         .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem; margin-bottom: 2.5rem;
         }
 
         .metric-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 10px; padding: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
 
-        .metric-card .title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .metric-card .value {
-            font-size: 2rem;
-            font-weight: 800;
-            margin: 0.4rem 0;
-        }
-
+        .metric-card .title { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
+        .metric-card .value { font-size: 1.8rem; font-weight: 800; margin: 0.3rem 0; }
         .metric-card .value.red { color: var(--accent-red); }
         .metric-card .value.green { color: var(--accent-green); }
         .metric-card .value.blue { color: var(--primary-accent); }
+        .metric-card .subtext { font-size: 0.82rem; color: var(--text-muted); }
 
-        .metric-card .subtext {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Section Layouts */
-        section {
-            margin-bottom: 3.5rem;
-            scroll-margin-top: 2rem;
-        }
-
+        /* Sections */
+        section { margin-bottom: 3rem; scroll-margin-top: 2rem; }
         section h2 {
-            font-size: 1.6rem;
-            color: var(--text-dark);
-            margin-bottom: 1.25rem;
-            font-weight: 700;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border-color);
+            font-size: 1.5rem; color: var(--text-dark); margin-bottom: 1.25rem;
+            font-weight: 700; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border-color);
         }
 
-        .charts-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
+        .charts-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.75rem; margin-bottom: 1.75rem; }
+        .chart-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.5rem; }
+        .chart-card h3 { font-size: 1.05rem; color: var(--text-dark); margin-bottom: 0.25rem; font-weight: 700; }
+        .chart-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+        .chart-container { position: relative; height: 250px; width: 100%; }
 
-        .chart-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 1.75rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-        }
-
-        .chart-card h3 {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            margin-bottom: 0.25rem;
-            font-weight: 700;
-        }
-
-        .chart-card p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 1.25rem;
-        }
-
-        .chart-container {
-            position: relative;
-            height: 260px;
-            width: 100%;
-        }
-
-        /* Statement Box Callouts */
         .statement-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-left: 5px solid var(--primary-accent);
-            border-radius: 8px;
-            padding: 1.5rem 1.75rem;
-            margin-bottom: 1.25rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-left: 5px solid var(--primary-accent); border-radius: 8px;
+            padding: 1.25rem 1.5rem; margin-bottom: 1rem; box-shadow: 0 1px 2px rgba(0,0,0,0.03);
         }
+        .statement-card.alert { border-left-color: var(--accent-red); background: #fef2f2; }
+        .statement-card.success { border-left-color: var(--accent-green); background: #f0fdf4; }
+        .statement-card h4 { font-size: 1rem; color: var(--text-dark); margin-bottom: 0.4rem; font-weight: 700; }
+        .statement-card p { font-size: 0.92rem; color: var(--text-main); }
 
-        .statement-card.alert {
-            border-left-color: var(--accent-red);
-            background: #fef2f2;
-        }
-
-        .statement-card h4 {
-            font-size: 1.05rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .statement-card p {
-            font-size: 0.95rem;
-            color: var(--text-main);
-        }
-
-        /* Tables */
         .table-container {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-            margin-bottom: 2rem;
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 10px; overflow: hidden; margin-bottom: 2rem;
         }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+        th { background: #f1f5f9; color: var(--text-dark); font-weight: 700; padding: 0.85rem 1.25rem; border-bottom: 1px solid var(--border-color); }
+        td { padding: 0.9rem 1.25rem; border-bottom: 1px solid var(--border-color); }
+        tr:last-child td { border-bottom: none; }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.92rem;
-        }
-
-        th {
-            background: #f1f5f9;
-            color: var(--text-dark);
-            font-weight: 700;
-            padding: 0.85rem 1.25rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        td {
-            padding: 1rem 1.25rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* Responsive */
         @media (max-width: 992px) {
             body { flex-direction: column; }
             .sidebar { width: 100%; height: auto; position: relative; }
@@ -308,7 +140,7 @@
 </head>
 <body>
 
-    <!-- Sidebar Navigation -->
+    <!-- Sidebar -->
     <aside class="sidebar">
         <div>
             <div class="sidebar-brand">Vispero</div>
@@ -316,15 +148,15 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="#executive-summary">Executive Summary</a></li>
-                    <li><a href="#revenue-analytics">Revenue Protection & Leakage</a></li>
-                    <li><a href="#efficiency-analytics">Operational Efficiency & ROI</a></li>
-                    <li><a href="#risk-architecture">Risk & Architecture Governance</a></li>
-                    <li><a href="#phased-roadmap">Phased Value Roadmap</a></li>
+                    <li><a href="#revenue-analytics">Revenue Protection & SMA Sync</a></li>
+                    <li><a href="#operational-capacity">Admin & Systems Capacity</a></li>
+                    <li><a href="#tech-debt">Integration & Tech Debt Reduction</a></li>
+                    <li><a href="#ai-cost-reduction">AI Cost Management & LLM Gateway</a></li>
                 </ul>
             </nav>
         </div>
         <div class="meta-info">
-            <p><strong>Prepared for:</strong> Robert Dion, VP IT</p>
+            <p><strong>Prepared for:</strong> Rob Dion, VP IT</p>
             <p><strong>Salesforce AE:</strong> Sarvin Tavakol</p>
             <p><strong>Target Enterprise:</strong> vispero.com</p>
         </div>
@@ -333,257 +165,221 @@
     <!-- Main Content -->
     <main class="main-content">
 
-        <!-- Header Banner -->
+        <!-- Banner Header -->
         <section id="executive-summary" class="header-banner">
-            <span class="badge">Board Presentation</span>
-            <h1>MuleSoft & Informatica: Business Value & Strategic ROI</h1>
-            <p>Vispero is at a key strategic inflection point under a private-equity holding period. Every dollar spent must directly drive measurable business outcomes: recurring revenue protection, operational efficiency, cost reduction, and technical risk mitigation.</p>
+            <span class="badge">Board Briefing</span>
+            <h1>MuleSoft & Informatica: Operational & Financial ROI</h1>
+            <p>Vispero's Salesforce platform manages over <strong>$60M in enterprise revenue</strong>. Centralizing millions of legacy subscription records across Great Plains, Exact, and ILM into a single canonical Golden Record directly secures ARR, eliminates contractor tech debt, and relieves key operational bottlenecks.</p>
         </section>
 
         <!-- Top Key ROI Metrics Grid -->
         <div class="metrics-grid">
             <div class="metric-card">
-                <div class="title">Current Revenue Leakage</div>
+                <div class="title">ARR Under Governance</div>
+                <div class="value blue">$60M+</div>
+                <div class="subtext">Single Salesforce org ARR managed by current team</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">SMA Renewal Leakage</div>
                 <div class="value red">35–40%</div>
-                <div class="subtext">ARR at risk due to un-synced renewal visibility</div>
+                <div class="subtext">Identified ARR missed due to un-synced end dates</div>
             </div>
             <div class="metric-card">
-                <div class="title">Target Revenue Leakage</div>
-                <div class="value green">&lt; 5%</div>
-                <div class="subtext">Post-automation real-time contract sync</div>
+                <div class="title">SMA Target Hit Rate</div>
+                <div class="value green">70%+</div>
+                <div class="subtext">Post-Nov 1, 2026 automated sync target</div>
             </div>
             <div class="metric-card">
-                <div class="title">Reporting Time Savings</div>
-                <div class="value blue">Weeks &#8594; Real-Time</div>
-                <div class="subtext">Immediate pipeline visibility for sales leadership</div>
-            </div>
-            <div class="metric-card">
-                <div class="title">Technical Debt Elimination</div>
-                <div class="value green">47 &#8594; 0</div>
-                <div class="subtext">Undocumented legacy integrations replaced</div>
+                <div class="title">LLM API Cost Reduction</div>
+                <div class="value green">30–75%</div>
+                <div class="subtext">Immediate savings via MuleSoft LLM Gateway</div>
             </div>
         </div>
 
-        <!-- Section 1: Revenue Protection & Leakage -->
+        <!-- Section 1: Revenue Protection & Renewal Analytics -->
         <section id="revenue-analytics">
-            <h2>1. Revenue Protection & Renewal Analytics</h2>
+            <h2>1. Revenue Protection & Software Maintenance (SMA) Sync</h2>
 
             <div class="statement-card alert">
-                <h4>35–40% Revenue Leakage Identified</h4>
-                <p>An estimated 35–40% revenue leakage was identified due to limited renewal data visibility across Great Plains, Salesforce, and license servers. Centralizing renewals data and automating the synchronization is a strategic revenue protection play with immediate ARR impact.</p>
+                <h4>Addressing the 35–40% SMA Renewal Leakage</h4>
+                <p>An estimated 35–40% of SMA (Software Maintenance Agreement) renewal opportunities are currently missed because license end dates are unpopulated or trapped across Great Plains, Exact ERP (Europe), and ILM (License Server). Centralizing this data creates an automated engine that notifies customers when software "phones home."</p>
             </div>
 
             <div class="charts-row">
                 <div class="chart-card">
-                    <h3>ARR Renewal Leakage Reduction (%)</h3>
-                    <p>Comparison of pre-integration leakage versus automated target state</p>
+                    <h3>SMA Renewal Hit Rate Capture (%)</h3>
+                    <p>Impact of automated end-date sync on renewal revenue capture</p>
                     <div class="chart-container">
                         <canvas id="leakageChart"></canvas>
                     </div>
                 </div>
                 <div class="chart-card">
-                    <h3>Renewal Pipeline Reporting Cycle Time</h3>
-                    <p>Time required for leadership to produce accurate renewal reporting</p>
+                    <h3>Data Volume & Historical Scope</h3>
+                    <p>Scope of subscription data being reconciled across 20 years of history</p>
                     <div class="chart-container">
-                        <canvas id="reportTimeChart"></canvas>
+                        <canvas id="dataVolumeChart"></canvas>
                     </div>
                 </div>
             </div>
 
-            <div class="statement-card">
-                <h4>Board Statement on Revenue Protection</h4>
-                <p>Every software renewal that slips due to manual data gaps between Great Plains and Salesforce directly damages ARR. At 35–40% identified risk, automating this pipeline delivers the single highest ROI initiative available to Vispero today.</p>
+            <div class="statement-card success">
+                <h4>Mandated Operational Fix: Nov 1, 2026 Mass Update</h4>
+                <p>To immediately shake the tree, leadership authorized a mass update defaulting missing SMA end dates to November 1, 2026. Informatica and MuleSoft provide the permanent governance layer so future entitlements automatically populate in Salesforce without requiring manual intervention.</p>
             </div>
         </section>
 
-        <!-- Section 2: Operational Efficiency & ROI -->
-        <section id="efficiency-analytics">
-            <h2>2. Operational Efficiency & Time Savings</h2>
+        <!-- Section 2: Operational Capacity -->
+        <section id="operational-capacity">
+            <h2>2. Admin Headcount Constraints & Support Upsell</h2>
+
+            <div class="statement-card">
+                <h4>Relieving Salesforce Admin Bottlenecks Under Hiring Freeze</h4>
+                <p>A single Salesforce admin (Alina) is managing a $60M revenue platform while being swamped with routine enhancement requests. Because permanent headcount is constrained by a company-wide hiring freeze, automated data synchronization acts as a "surge resource"—freeing admin capacity for strategic projects.</p>
+            </div>
+
+            <div class="statement-card">
+                <h4>Empowering Support Console Engagement</h4>
+                <p>Vispero's support team—comprising blind and low-vision agents using the product live—currently lacks visibility into contract end dates during support calls. Pushing the "Golden Record" into the Salesforce Service Console equips agents to identify upcoming renewals and AI upgrade opportunities in real time.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Tech Debt Reduction -->
+        <section id="tech-debt">
+            <h2>3. Integration Simplification & ERP Agility</h2>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Current Legacy Integration Tool</th>
+                            <th>Current State Risk</th>
+                            <th>MuleSoft + Informatica Target State</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Scribe / SSIS / Skivia</strong></td>
+                            <td>Fragmented, one-off scripts built by legacy contractors</td>
+                            <td>Unified, 100% governed integration platform with automated SLAs</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Great Plains (US ERP)</strong></td>
+                            <td>Manual serial number linking via custom database fields</td>
+                            <td>Bi-directional real-time Q2O and account creation sync</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exact (European ERP)</strong></td>
+                            <td>Serial numbers missing or buried in unstructured notes</td>
+                            <td>Informatica deduplication & canonical record mapping</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ILM (License Server)</strong></td>
+                            <td>Sales-driven custom license formatting across 20+ years</td>
+                            <td>Standardized license genealogy & entitlement tracking in Salesforce</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 4: AI Cost Management & LLM Gateway -->
+        <section id="ai-cost-reduction">
+            <h2>4. Immediate Cost Savings: MuleSoft LLM Gateway</h2>
 
             <div class="charts-row">
                 <div class="chart-card">
-                    <h3>Quote-to-Order Processing Time (Hours)</h3>
-                    <p>Manual re-work reduction when ERP accounts are missing or unlinked</p>
+                    <h3>Projected Monthly AI API Expenditure ($)</h3>
+                    <p>Cost reduction achieved by routing LLM requests through MuleSoft Gateway</p>
                     <div class="chart-container">
-                        <canvas id="q2oChart"></canvas>
+                        <canvas id="aiCostChart"></canvas>
                     </div>
                 </div>
                 <div class="chart-card">
-                    <h3>Customer Master Data Quality & Deduplication</h3>
-                    <p>Canonical record accuracy before & after Informatica cleansing</p>
+                    <h3>Token Management & Request Routing</h3>
+                    <p>Automated policy enforcement across 60+ power users (~200M tokens/mo)</p>
                     <div class="chart-container">
-                        <canvas id="dataQualityChart"></canvas>
+                        <canvas id="aiRoutingChart"></canvas>
                     </div>
                 </div>
             </div>
 
-            <div class="statement-card">
-                <h4>Board Statement on Productivity & Headcount</h4>
-                <p>Producing accurate revenue pipeline reporting today requires weeks of spreadsheet reconciliation. Replacing manual data operations with governed automation relieves administrative constraints on the Salesforce team and enables sales reps to focus on selling.</p>
-            </div>
-        </section>
-
-        <!-- Section 3: Risk & Architecture Governance -->
-        <section id="risk-architecture">
-            <h2>3. Architectural Risk & ERP Flexibility</h2>
-
-            <div class="statement-card">
-                <h4>Eliminating Technical Debt (~47 Point-to-Point Connections)</h4>
-                <p>Vispero currently operates approximately 47 undocumented point-to-point integrations created by legacy contractors. Replacing these connections with a governed MuleSoft integration layer de-risks operations, establishes recovery SLAs, and enables scalable growth.</p>
-            </div>
-
-            <div class="statement-card">
-                <h4>Future-Proofing ERP Agility ("Swappable Fitting")</h4>
-                <p>Standardizing CRM-to-ERP integration rather than hard-coding legacy connections ensures Vispero remains ERP-agnostic. If the board evaluates replacing Great Plains in the future, the integration architecture remains intact—build once, adapt cheaply.</p>
-            </div>
-
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Platform</th>
-                            <th>Core Strategic Role</th>
-                            <th>Vispero Enterprise Impact</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>MuleSoft</strong></td>
-                            <td>Real-time, event-driven transactional integration</td>
-                            <td>Synchronizes Salesforce ↔ Great Plains ↔ License Server in real-time. Eliminates manual quote-to-order bottlenecks.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Informatica</strong></td>
-                            <td>Data governance, cleansing, & master data management</td>
-                            <td>Cleans, deduplicates, and creates a "Golden Record" canonical model for all customer entitlements and contracts.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Section 4: Phased Value Roadmap -->
-        <section id="phased-roadmap">
-            <h2>4. Phased Value Delivery Roadmap</h2>
-
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Phase</th>
-                            <th>Timeline</th>
-                            <th>Focus & Execution</th>
-                            <th>Quantifiable Value Delivered</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Crawl</strong></td>
-                            <td>Jul–Sep 2026</td>
-                            <td>Informatica data cleanse, deduplication, & source-of-truth governance</td>
-                            <td>Accurate renewal pipeline reports in real-time; eliminates 35–40% leakage risk.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Walk</strong></td>
-                            <td>Oct–Dec 2026</td>
-                            <td>MuleSoft connection: Salesforce ↔ Great Plains ↔ License Server</td>
-                            <td>Same-day automated Quote-to-Order; zero manual double-entry.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Run</strong></td>
-                            <td>Jan–Feb 2027</td>
-                            <td>Predictive renewal analytics, attrition modeling, & AI agent workflows</td>
-                            <td>Proactive revenue retention and automated renewal forecasting at scale.</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="statement-card success">
+                <h4>Quick-Win ROI: 30%–75% AI API Cost Reduction</h4>
+                <p>Vispero currently consumes hundreds of millions of LLM tokens monthly (spending $20K–$50K/mo). MuleSoft includes a built-in LLM Gateway that buffers API requests to Claude/OpenAI, enforces rate-limiting, and intelligently routes non-complex queries to cheaper nano models—delivering <strong>immediate hard-dollar savings within 1–2 weeks of deployment</strong>.</p>
             </div>
         </section>
 
     </main>
 
-    <!-- JavaScript to render interactive Chart.js visualizations -->
+    <!-- JavaScript Charts -->
     <script>
-        // Chart 1: Revenue Leakage
-        const ctxLeakage = document.getElementById('leakageChart').getContext('2d');
-        new Chart(ctxLeakage, {
+        // Chart 1: SMA Hit Rate
+        new Chart(document.getElementById('leakageChart').getContext('2d'), {
             type: 'bar',
             data: {
-                labels: ['Current State (Un-Synced Data)', 'Target State (MuleSoft + Informatica)'],
+                labels: ['Current Hit Rate', 'Target (Post-Nov 1 Sync)'],
                 datasets: [{
-                    label: 'ARR Revenue Leakage Risk (%)',
-                    data: [37.5, 3.0],
+                    label: 'SMA Renewal Capture (%)',
+                    data: [35, 70],
                     backgroundColor: ['#dc2626', '#059669'],
                     borderRadius: 6
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
+                responsive: true, maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true, max: 50, ticks: { callback: v => v + '%' } } }
+                scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } } }
             }
         });
 
-        // Chart 2: Report Time
-        const ctxReport = document.getElementById('reportTimeChart').getContext('2d');
-        new Chart(ctxReport, {
-            type: 'bar',
-            data: {
-                labels: ['Current (Manual Spreadsheet)', 'Target (Governed Pipeline)'],
-                datasets: [{
-                    label: 'Time to Produce Renewal Report (Days)',
-                    data: [14, 0.1],
-                    backgroundColor: ['#64748b', '#2563eb'],
-                    borderRadius: 6
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true, title: { display: true, text: 'Days' } } }
-            }
-        });
-
-        // Chart 3: Quote-to-Order Processing
-        const ctxQ2O = document.getElementById('q2oChart').getContext('2d');
-        new Chart(ctxQ2O, {
-            type: 'bar',
-            data: {
-                labels: ['Manual Account Creation', 'Automated Integration Sync'],
-                datasets: [{
-                    label: 'Quote-to-Order Cycle (Hours)',
-                    data: [48, 0.5],
-                    backgroundColor: ['#dc2626', '#059669'],
-                    borderRadius: 6
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true, title: { display: true, text: 'Hours' } } }
-            }
-        });
-
-        // Chart 4: Customer Data Quality Accuracy
-        const ctxQuality = document.getElementById('dataQualityChart').getContext('2d');
-        new Chart(ctxQuality, {
+        // Chart 2: Data Volume
+        new Chart(document.getElementById('dataVolumeChart').getContext('2d'), {
             type: 'doughnut',
             data: {
-                labels: ['Validated Golden Records', 'Duplicate / Missing Data'],
+                labels: ['Historical ILM License Records (20 Yrs)', 'Great Plains & Exact ERP Accounts', 'Active Salesforce Records'],
                 datasets: [{
-                    data: [99, 1],
-                    backgroundColor: ['#2563eb', '#e2e8f0']
+                    data: [70, 20, 10],
+                    backgroundColor: ['#2563eb', '#64748b', '#059669']
                 }]
             },
             options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'bottom' }
-                }
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // Chart 3: AI Expenditure Reduction
+        new Chart(document.getElementById('aiCostChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Unbuffered Direct API Usage', 'With MuleSoft LLM Gateway'],
+                datasets: [{
+                    label: 'Estimated Monthly Spend ($)',
+                    data: [35000, 12250],
+                    backgroundColor: ['#dc2626', '#059669'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v.toLocaleString() } } }
+            }
+        });
+
+        // Chart 4: AI Model Routing Breakdown
+        new Chart(document.getElementById('aiRoutingChart').getContext('2d'), {
+            type: 'pie',
+            data: {
+                labels: ['Routed to Nano/Cheaper Models (80%)', 'Routed to High-Tier Claude/OpenAI (20%)'],
+                datasets: [{
+                    data: [80, 20],
+                    backgroundColor: ['#059669', '#2563eb']
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } }
             }
         });
     </script>
