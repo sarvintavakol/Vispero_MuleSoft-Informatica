@@ -169,16 +169,11 @@
         <section id="executive-summary" class="header-banner">
             <span class="badge">Board Briefing</span>
             <h1>MuleSoft & Informatica: Operational & Financial ROI</h1>
-            <p>Vispero's Salesforce platform manages over <strong>$60M in enterprise revenue</strong>. Centralizing millions of legacy subscription records across Great Plains, Exact, and ILM into a single canonical Golden Record directly secures ARR, eliminates contractor tech debt, and relieves key operational bottlenecks.</p>
+            <p>Vispero's single Salesforce platform manages over 100% of core enterprise operations. Centralizing millions of legacy subscription records across Great Plains, Exact, and ILM into a canonical Golden Record directly secures ARR, eliminates contractor tech debt, and relieves key operational bottlenecks.</p>
         </section>
 
         <!-- Top Key ROI Metrics Grid -->
         <div class="metrics-grid">
-            <div class="metric-card">
-                <div class="title">ARR Under Governance</div>
-                <div class="value blue">$60M+</div>
-                <div class="subtext">Single Salesforce org ARR managed by current team</div>
-            </div>
             <div class="metric-card">
                 <div class="title">SMA Renewal Leakage</div>
                 <div class="value red">35–40%</div>
@@ -191,8 +186,13 @@
             </div>
             <div class="metric-card">
                 <div class="title">LLM API Cost Reduction</div>
-                <div class="value green">30–75%</div>
+                <div class="value green">30–65%</div>
                 <div class="subtext">Immediate savings via MuleSoft LLM Gateway</div>
+            </div>
+            <div class="metric-card">
+                <div class="title">Integration Tech Debt</div>
+                <div class="value blue">100% Governed</div>
+                <div class="subtext">Replacing fragmented Scribe/SSIS scripts</div>
             </div>
         </div>
 
@@ -214,8 +214,8 @@
                     </div>
                 </div>
                 <div class="chart-card">
-                    <h3>Data Volume & Historical Scope</h3>
-                    <p>Scope of subscription data being reconciled across 20 years of history</p>
+                    <h3>Data Volume & Historical Distribution (%)</h3>
+                    <p>Distribution of subscription records across 20 years of history</p>
                     <div class="chart-container">
                         <canvas id="dataVolumeChart"></canvas>
                     </div>
@@ -234,7 +234,7 @@
 
             <div class="statement-card">
                 <h4>Relieving Salesforce Admin Bottlenecks Under Hiring Freeze</h4>
-                <p>A single Salesforce admin (Alina) is managing a $60M revenue platform while being swamped with routine enhancement requests. Because permanent headcount is constrained by a company-wide hiring freeze, automated data synchronization acts as a "surge resource"—freeing admin capacity for strategic projects.</p>
+                <p>A single Salesforce admin (Alina) is managing a major revenue platform while being swamped with routine enhancement requests. Because permanent headcount is constrained by a company-wide hiring freeze, automated data synchronization acts as a "surge resource"—freeing admin capacity for strategic projects.</p>
             </div>
 
             <div class="statement-card">
@@ -288,15 +288,15 @@
 
             <div class="charts-row">
                 <div class="chart-card">
-                    <h3>Projected Monthly AI API Expenditure ($)</h3>
-                    <p>Cost reduction achieved by routing LLM requests through MuleSoft Gateway</p>
+                    <h3>Projected Monthly AI API Expenditure (%)</h3>
+                    <p>Relative cost reduction achieved by routing LLM requests through MuleSoft Gateway</p>
                     <div class="chart-container">
                         <canvas id="aiCostChart"></canvas>
                     </div>
                 </div>
                 <div class="chart-card">
-                    <h3>Token Management & Request Routing</h3>
-                    <p>Automated policy enforcement across 60+ power users (~200M tokens/mo)</p>
+                    <h3>Token Management & Request Routing Breakdown (%)</h3>
+                    <p>Automated policy enforcement across power users (~200M tokens/mo)</p>
                     <div class="chart-container">
                         <canvas id="aiRoutingChart"></canvas>
                     </div>
@@ -304,8 +304,8 @@
             </div>
 
             <div class="statement-card success">
-                <h4>Quick-Win ROI: 30%–75% AI API Cost Reduction</h4>
-                <p>Vispero currently consumes hundreds of millions of LLM tokens monthly (spending $20K–$50K/mo). MuleSoft includes a built-in LLM Gateway that buffers API requests to Claude/OpenAI, enforces rate-limiting, and intelligently routes non-complex queries to cheaper nano models—delivering <strong>immediate hard-dollar savings within 1–2 weeks of deployment</strong>.</p>
+                <h4>Quick-Win ROI: 30%–65% Relative AI API Cost Reduction</h4>
+                <p>Vispero currently consumes hundreds of millions of LLM tokens monthly across its user base. MuleSoft includes a built-in LLM Gateway that buffers API requests to Claude/OpenAI, enforces rate-limiting, and intelligently routes non-complex queries to cheaper nano models—delivering <strong>immediate relative cost savings within 1–2 weeks of deployment</strong>.</p>
             </div>
         </section>
 
@@ -313,7 +313,7 @@
 
     <!-- JavaScript Charts -->
     <script>
-        // Chart 1: SMA Hit Rate
+        // Chart 1: SMA Hit Rate (%)
         new Chart(document.getElementById('leakageChart').getContext('2d'), {
             type: 'bar',
             data: {
@@ -332,11 +332,11 @@
             }
         });
 
-        // Chart 2: Data Volume
+        // Chart 2: Data Volume Distribution (%)
         new Chart(document.getElementById('dataVolumeChart').getContext('2d'), {
             type: 'doughnut',
             data: {
-                labels: ['Historical ILM License Records (20 Yrs)', 'Great Plains & Exact ERP Accounts', 'Active Salesforce Records'],
+                labels: ['Historical ILM License Records (70%)', 'Great Plains & Exact ERP Accounts (20%)', 'Active Salesforce Records (10%)'],
                 datasets: [{
                     data: [70, 20, 10],
                     backgroundColor: ['#2563eb', '#64748b', '#059669']
@@ -348,14 +348,14 @@
             }
         });
 
-        // Chart 3: AI Expenditure Reduction
+        // Chart 3: AI Expenditure Reduction (%)
         new Chart(document.getElementById('aiCostChart').getContext('2d'), {
             type: 'bar',
             data: {
                 labels: ['Unbuffered Direct API Usage', 'With MuleSoft LLM Gateway'],
                 datasets: [{
-                    label: 'Estimated Monthly Spend ($)',
-                    data: [35000, 12250],
+                    label: 'Relative Cost (%)',
+                    data: [100, 35],
                     backgroundColor: ['#dc2626', '#059669'],
                     borderRadius: 6
                 }]
@@ -363,11 +363,11 @@
             options: {
                 responsive: true, maintainAspectRatio: false,
                 plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true, ticks: { callback: v => '$' + v.toLocaleString() } } }
+                scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } } }
             }
         });
 
-        // Chart 4: AI Model Routing Breakdown
+        // Chart 4: AI Model Routing Breakdown (%)
         new Chart(document.getElementById('aiRoutingChart').getContext('2d'), {
             type: 'pie',
             data: {
